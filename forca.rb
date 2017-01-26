@@ -40,7 +40,13 @@ def joga(nome)
 end
 
 def pede_um_chute(chutes, erros)
-
+  puts "\n\n\n\n"
+  puts "Erros até agora #{erros}"
+  puts "Chutes até agora #{chutes}"
+  puts "Entre com a letra ou palavra"
+  chute = gets.strip
+  puts "Será que acertou? Você chutou #{chute}"
+  chute
 end
 
 nome = da_boas_vindas
