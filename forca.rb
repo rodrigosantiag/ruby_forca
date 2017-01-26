@@ -27,10 +27,19 @@ def joga(nome)
   chutes = []
   pontos_ate_agora = 0
 
-  #laço principal a escrever
+  while erros < 5
+    chute = pede_um_chute chutes, erros
+    chutes << chute
 
+    #colocar regras de acertos e erros aqui
+
+  end
 
   puts "Você ganhou #{pontos_ate_agora} pontos."
+
+end
+
+def pede_um_chute(chutes, erros)
 
 end
 
