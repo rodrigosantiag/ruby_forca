@@ -31,7 +31,21 @@ def joga(nome)
     chute = pede_um_chute chutes, erros
     chutes << chute
 
-    #colocar regras de acertos e erros aqui
+    chutou_uma_unica_letra = chute.size == 1
+
+    if chutou_uma_unica_letra
+    else
+      acertou = chute == palavra_secreta
+      if acertou
+        puts "Acertou!!"
+        pontos_ate_agora += 100
+        break
+      else
+        puts "Errou!!"
+        pontos_ate_agora -= 30
+        erros += 1
+      end
+    end
 
   end
 
