@@ -43,13 +43,14 @@ def nao_quer_jogar?
   nao_quer_jogar = quer_jogar.upcase == "N"
 end
 
-def cabecalho_chute(erros, chutes)
+def cabecalho_chute(erros, chutes, mascara)
   puts "\n\n\n\n"
+  puts "Palavra secreta: #{mascara}"
   puts "Erros até agora #{erros}"
   puts "Chutes até agora #{chutes}"
 end
 
-def pede_um_chute(chutes, erros)
+def pede_um_chute
   puts "Entre com a letra ou palavra"
   chute = gets.strip
   puts "Será que acertou? Você chutou #{chute}"
