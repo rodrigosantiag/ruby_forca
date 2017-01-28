@@ -19,7 +19,6 @@ def nao_quer_jogar?
   quer_jogar.upcase == "N"
 end
 
-
 def joga(nome)
   palavra_secreta = sorteia_palavra_secreta
 
@@ -29,11 +28,27 @@ def joga(nome)
 
   while erros < 5
     chute = pede_um_chute chutes, erros
+
+    if chutes.include? chute
+      puts "Você já chtou #{chute}"
+      next
+    end
+
     chutes << chute
 
     chutou_uma_unica_letra = chute.size == 1
 
     if chutou_uma_unica_letra
+
+      total_encontrado = palavra_secreta.count chute
+
+      if total_encontrado == 0
+        puts "Letra não encontrada!"
+        erros += 1
+      else
+        puts "Letra encontrada #{total_encontrado} vezes!"
+      end
+
     else
       acertou = chute == palavra_secreta
       if acertou
