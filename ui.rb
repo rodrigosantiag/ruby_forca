@@ -1,3 +1,7 @@
+def avisa_pontos_sessao(pontos_sessao)
+  puts "Você tem #{pontos_sessao} até o momento"
+end
+
 def avisa_escolhendo_palavra
   puts "Escolhendo uma palavra secreta..."
 end

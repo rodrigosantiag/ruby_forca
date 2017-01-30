@@ -1,5 +1,10 @@
 require_relative "ui"
 
+def salva_rank(nome, pontos)
+  conteudo = "#{nome}\n#{pontos}"
+  File.write "rank.txt", conteudo
+end
+
 def sorteia_palavra_secreta
   avisa_escolhendo_palavra
   arquivo = File.read "dicionario.txt"
@@ -80,13 +85,19 @@ def joga(nome)
 
   avisa_pontos_ate_agora pontos_ate_agora
 
+  pontos_ate_agora
+
 end
 
 def jogo_da_forca
   nome = da_boas_vindas
+  pontos_sessao = 0
 
   loop do
-    joga nome
+    pontos_jogo = joga nome
+    pontos_sessao += pontos_jogo
+    avisa_pontos_sessao pontos_sessao
+    salva_rank nome, pontos_sessao
     break if nao_quer_jogar?
   end
 end
