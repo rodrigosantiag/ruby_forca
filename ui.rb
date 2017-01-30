@@ -1,3 +1,11 @@
+def avisa_escolhendo_palavra
+  puts "Escolhendo uma palavra secreta..."
+end
+
+def avisa_palavra_sorteada(palavra_secreta)
+  puts "Palavra escolhida. A palavra tem #{palavra_secreta.size} letras."
+end
+
 def avisa_chute_repetido(chute)
   puts "Você já chutou #{chute}"
 end
@@ -28,13 +36,6 @@ def da_boas_vindas
   nome = gets.strip
   puts "Olá #{nome}, vamos começar o jogo para você."
   nome
-end
-
-def sorteia_palavra_secreta
-  puts "Escolhendo uma palavra secreta..."
-  palavra_secreta = "programador"
-  puts "Palavra escolhida. A palavra tem #{palavra_secreta.size} letras."
-  palavra_secreta
 end
 
 def nao_quer_jogar?

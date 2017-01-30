@@ -1,9 +1,19 @@
 require_relative "ui"
 
+def sorteia_palavra_secreta
+  avisa_escolhendo_palavra
+  arquivo = File.read "dicionario.txt"
+  todas_as_palavras = arquivo.split "\n"
+  numero_aleatorio = rand(todas_as_palavras.size)
+  palavra_secreta = todas_as_palavras[numero_aleatorio]
+  avisa_palavra_sorteada palavra_secreta
+  palavra_secreta
+end
+
 def pede_um_chute_valido(chutes, erros, mascara)
   cabecalho_chute erros, chutes, mascara
   loop do
-    chute = pede_um_chute chutes, erros
+    chute = pede_um_chute
     if chutes.include? chute
       avisa_chute_repetido chute
     else
