@@ -5,7 +5,7 @@ def sorteia_palavra_secreta
   arquivo = File.read "dicionario.txt"
   todas_as_palavras = arquivo.split "\n"
   numero_aleatorio = rand(todas_as_palavras.size)
-  palavra_secreta = todas_as_palavras[numero_aleatorio]
+  palavra_secreta = todas_as_palavras[numero_aleatorio].strip.downcase
   avisa_palavra_sorteada palavra_secreta
   palavra_secreta
 end
@@ -13,7 +13,7 @@ end
 def pede_um_chute_valido(chutes, erros, mascara)
   cabecalho_chute erros, chutes, mascara
   loop do
-    chute = pede_um_chute
+    chute = pede_um_chute.strip.downcase
     if chutes.include? chute
       avisa_chute_repetido chute
     else
@@ -39,7 +39,7 @@ def joga(nome)
 
   erros = 0
   chutes = []
-  pontos_ate_agora = 0
+  pontos_ate_agora = 100
 
   while erros < 5
 
@@ -57,8 +57,10 @@ def joga(nome)
       if total_encontrado == 0
         avisa_letra_nao_encontrada
         erros += 1
+        pontos_ate_agora -=20
       else
         avisa_letra_encontrada total_encontrado
+        pontos_ate_agora += 20
       end
 
     else
@@ -69,7 +71,7 @@ def joga(nome)
         break
       else
         avisa_nao_acertou
-        pontos_ate_agora -= 30
+        pontos_ate_agora -= 20
         erros += 1
       end
     end
