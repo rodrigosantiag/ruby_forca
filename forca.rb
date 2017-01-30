@@ -1,13 +1,5 @@
 require_relative "ui"
-def le_rank
-  arquivo = File.read "rank.txt"
-  campeao = arquivo.split "\n"
-end
-
-def salva_rank(nome, pontos)
-  conteudo = "#{nome}\n#{pontos}"
-  File.write "rank.txt", conteudo
-end
+require_relative "rank"
 
 def sorteia_palavra_secreta
   avisa_escolhendo_palavra
