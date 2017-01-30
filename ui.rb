@@ -1,3 +1,7 @@
+def mostra_campeao(campeao_pontos)
+  puts "O atual campeão é #{campeao_pontos[0]} com #{campeao_pontos[1]} pontos."
+end
+
 def avisa_pontos_sessao(pontos_sessao)
   puts "Você tem #{pontos_sessao} até o momento"
 end

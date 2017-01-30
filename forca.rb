@@ -1,4 +1,8 @@
 require_relative "ui"
+def le_rank
+  arquivo = File.read "rank.txt"
+  campeao = arquivo.split "\n"
+end
 
 def salva_rank(nome, pontos)
   conteudo = "#{nome}\n#{pontos}"
@@ -93,11 +97,17 @@ def jogo_da_forca
   nome = da_boas_vindas
   pontos_sessao = 0
 
+  mostra_campeao le_rank
+
   loop do
     pontos_jogo = joga nome
     pontos_sessao += pontos_jogo
+
+    if le_rank[1].to_i < pontos_sessao
+      salva_rank nome, pontos_sessao
+    end
+
     avisa_pontos_sessao pontos_sessao
-    salva_rank nome, pontos_sessao
     break if nao_quer_jogar?
   end
 end
